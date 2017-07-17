@@ -9,7 +9,7 @@ from collections import OrderedDict, Counter, Iterable
 from caffe import layers as L, params as P, to_proto
 from caffe.proto import caffe_pb2
 import six
-from compiler.ast import nodes
+# from compiler.ast import nodes
 
 
 class MetaLayers(object):
@@ -501,8 +501,8 @@ def fix_input_dims(net, source_layers, max_shapes=[], min_shapes=[], shape_coupl
 
                 # Test the shape
                 if (verbose or not error):
-                    print test_current_shapes
-                    print "Valid shape: " + str(not error)
+                    print(test_current_shapes)
+                    print("Valid shape: " + str(not error))
                 
                 if (error and ((len(test_current_shapes[curr_src_idx]) - 2 <= dim_idx) or (test_current_shapes[curr_src_idx][2 + dim_idx] == test_min_shapes[curr_src_idx][2 + dim_idx]))):
                     # Reached minimum shape, reset source and go to previous source
